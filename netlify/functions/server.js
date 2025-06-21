@@ -23,3 +23,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/', mainRoutes);
 
 module.exports.handler = serverless(app);
+
+if (require.main === module) {
+    const PORT = 3000;
+    app.listen(PORT, () => {
+      console.log(`🚀 Servidor local iniciado en http://localhost:${PORT}`);
+    });
+  }

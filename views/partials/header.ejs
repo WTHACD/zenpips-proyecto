@@ -3,6 +3,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZenPips | <%= title %>
     </title>
+    <script>
+        (function () {
+            try {
+                var theme = localStorage.getItem('theme') || 'dark';                
+                document.documentElement.className = 'theme-' + theme;
+            } catch (e) {
+            }
+        })();
+    </script>
     <meta name="description"
         content="<%= typeof description !== 'undefined' ? description : 'Learn about PAMM accounts and forex trading with ZenPips' %>">
     <link rel="stylesheet" href="/css/style.css">

@@ -83,8 +83,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const body = document.body;
 
   function applyTheme(theme) {
-    body.classList.remove('theme-light', 'theme-dark');
-    body.classList.add(`theme-${theme}`);
+    const htmlEl = document.documentElement;
+    htmlEl.classList.remove('theme-light', 'theme-dark');
+    htmlEl.classList.add(`theme-${theme}`);
     localStorage.setItem('theme', theme);
   }
 

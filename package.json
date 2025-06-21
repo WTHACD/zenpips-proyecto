@@ -3,12 +3,16 @@
   "version": "1.0.0",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+   "start": "node netlify/functions/server.js",
+  "dev": "nodemon netlify/functions/server.js"
   },
   "dependencies": {
-    "express": "^4.19.2",
-    "ejs": "^3.1.10",
     "dotenv": "^16.4.5",
-    "serverless-http": "^3.2.0" 
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "serverless-http": "^3.2.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }

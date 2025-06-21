@@ -3,22 +3,22 @@
    ===================================================================
 
    Table of Contents:
-   1. Global Variables and Base Styles
-   2. Typography and General Styles
-   3. Utility Classes and Containers
+   1. Global Variables & Base Styles
+   2. Typography & General Styles
+   3. Utility Classes & Containers
    4. Main Structure (Header, Footer)
    5. Specific Content Sections
    6. Specific Components
-   7. Alternative Theme Styles (Light Theme)
+   7. Alternate Theme Styles (Light Theme)
    8. Animations
    9. Media Queries (Responsive Design)
 
 =================================================================== */
 
 
-/* --- 1. Global Variables and Base Styles --- */
+/* --- 1. Global Variables & Base Styles --- */
 :root {
-    /* Dark Palette (Default) - Based on the Logo */
+    /* Dark Palette (Default) - Based on Logo */
     --background-color: #121a23;
     --card-background: #1a242f;
     --border-color: #2c3e50;
@@ -29,214 +29,198 @@
     --success-color: #28a745;
     --danger-color: #e74c3c;
     --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-}
-
-html {
+  }
+  
+  html {
     font-size: 17px;
-}
-
-body {
+    scroll-behavior: smooth;
+  }
+  
+  body {
     font-family: var(--font-family-sans);
     background-color: var(--background-color);
     color: var(--secondary-text-color);
     margin: 0;
     padding: 0;
     line-height: 1.7;
-}
-
-
-/* --- 2. Typography and General Styles --- */
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  
+  /* --- 2. Typography & General Styles --- */
+  h1, h2, h3, h4, h5, h6 {
     color: var(--primary-text-color);
     font-weight: 700;
     line-height: 1.3;
-}
-
-h1 {
-    font-size: 2.25rem;
-}
-
-h2 {
-    font-size: 1.75rem;
-}
-
-h3 {
-    font-size: 1.25rem;
-}
-
-a {
+  }
+  
+  h1 { font-size: 2.25rem; }
+  h2 { font-size: 1.75rem; }
+  h3 { font-size: 1.25rem; }
+  
+  a {
     color: var(--accent-color-green);
     text-decoration: none;
-}
-
-a:hover {
-    text-decoration: underline;
-}
-
-
-/* --- 3. Utility Classes and Containers --- */
-.container {
+    transition: color 0.3s ease;
+  }
+  a:hover { text-decoration: underline; }
+  
+  
+  /* --- 3. Utility Classes & Containers --- */
+  .container {
     max-width: 1140px;
     margin: 0 auto;
     padding: 0 1rem;
-}
-
-.text-gain {
+  }
+  
+  .text-gain {
     color: var(--success-color);
     font-weight: 500;
-}
-
-.text-loss {
+  }
+  
+  .text-loss {
     color: var(--danger-color);
     font-weight: 500;
-}
-
-
-/* --- 4. Main Structure (Header, Footer) --- */
-.main-header {
+  }
+  
+  
+  /* --- 4. Main Structure (Header, Footer) --- */
+  .main-header {
     background-color: var(--card-background);
     border-bottom: 1px solid var(--border-color);
     padding: 1rem 0;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
-}
-
-.main-header .nav-container {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+  }
+  
+  .main-header .nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.logo-image {
-    max-height: 100px;
-    /* Adjust the size of your logo */
-}
-
-.main-header .desktop-nav a {
+  }
+  
+  .logo-image {
+    max-height: 100px; 
+  }
+  
+  .main-header .desktop-nav a {
     text-decoration: none;
     color: var(--primary-text-color);
     padding: 0.5rem 1rem;
     transition: color 0.3s ease;
     font-weight: 500;
-}
-
-.main-header .desktop-nav a:hover {
+  }
+  
+  .main-header .desktop-nav a:hover {
     color: var(--accent-color-green);
     text-decoration: none;
-}
-
-.main-footer {
+  }
+  
+  .main-footer {
     background-color: var(--card-background);
     color: var(--secondary-text-color);
     padding: 2rem 0;
     margin-top: 3rem;
     border-top: 1px solid var(--border-color);
-}
-
-.main-footer a {
+    text-align: center;
+  }
+  
+  .main-footer a {
     color: var(--accent-color-green);
-}
-
-
-/* --- 5. Specific Content Sections --- */
-.hero-section {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/hero-background.jpg');
+  }
+  
+  
+  /* --- 5. Specific Content Sections --- */
+  .hero-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/images/hero-background.jpg');
     background-size: cover;
     background-position: center;
-    color: white;
+    padding: 5rem 0;
     text-align: center;
-    padding: 4rem 2rem;
-}
-
-.hero-section h1,
-.hero-section p {
     color: white;
-}
-
-.content-section {
+  }
+  
+  .hero-section h1, .hero-section p {
+    color: white;
+  }
+  
+  .content-section {
     background-color: var(--card-background);
     padding: 2rem;
     border-radius: 12px;
     margin-bottom: 2rem;
-}
-
-.card {
+  }
+  
+  .card {
     background-color: var(--card-background);
     border: 1px solid var(--border-color);
     border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover {
+  }
+  
+  .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
-}
-
-.card-image {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-image {
     width: 100%;
     height: 200px;
     object-fit: cover;
-}
-
-.card-content {
+  }
+  
+  .card-content {
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-}
-
-.card-content h3 {
+  }
+  
+  .card-content h3 {
     margin-top: 0;
-}
-
-.card-content .read-more-link {
+  }
+  
+  .card-content .read-more-link {
     margin-top: auto;
     font-weight: bold;
-}
-
-#news-container {
+  }
+  
+  #news-container {
     display: flex;
     overflow-x: auto;
     padding-bottom: 1.5rem;
     gap: 1.5rem;
-}
-
-#news-container .news-card {
+  }
+  
+  #news-container .news-card {
     flex: 0 0 320px;
-}
-
-#news-container::-webkit-scrollbar {
-    height: 8px;
-}
-
-#news-container::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 10px;
-}
-
-#news-container::-webkit-scrollbar-thumb {
-    background: #ccc;
-    border-radius: 10px;
-}
-
-#news-container::-webkit-scrollbar-thumb:hover {
-    background: #aaa;
-}
-
-.testimonial-card {
+  }
+  
+  #news-container::-webkit-scrollbar { height: 8px; }
+  #news-container::-webkit-scrollbar-track { background: var(--border-color); border-radius: 10px; }
+  #news-container::-webkit-scrollbar-thumb { background: #888; border-radius: 10px; }
+  #news-container::-webkit-scrollbar-thumb:hover { background: #555; }
+  
+  .grid-layout {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  .testimonial-card {
     position: relative;
     padding-top: 2.5rem;
-}
-
-.testimonial-card::before {
+    background-color: rgba(0,0,0,0.1);
+  }
+  
+  .testimonial-card::before {
     content: '“';
     position: absolute;
     top: -10px;
@@ -245,165 +229,102 @@ a:hover {
     line-height: 1;
     color: var(--border-color);
     font-family: Georgia, serif;
-}
-
-.benefits-grid,
-.key-players-grid {
+  }
+  
+  .benefits-grid, .key-players-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
-}
-
-.benefit-item,
-.player-item {
+  }
+  
+  .benefit-item, .player-item {
     text-align: center;
-}
-
-.benefit-icon,
-.player-icon {
+  }
+  
+  .benefit-icon, .player-icon {
     display: inline-flex;
     align-items: center;
     justify-content: center;
     width: 60px;
     height: 60px;
     border-radius: 50%;
-    color: white;
     margin-bottom: 1rem;
-}
-
-.benefit-icon {
-    background-color: var(--accent-color-green);
-}
-
-.player-icon {
-    background-color: var(--accent-color-blue);
-}
-
-.benefit-icon svg,
-.player-icon svg {
+    color: white;
+  }
+  .benefit-icon svg, .player-icon svg {
     width: 32px;
     height: 32px;
-}
-
-/* Styles for the FAQ Accordion */
-.faq-container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.faq-item {
-    border-bottom: 1px solid var(--border-color);
-    padding: 1rem 0;
-}
-
-.faq-item[open] summary {
-    font-weight: bold;
-}
-
-.faq-question {
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: var(--primary-text-color);
-    cursor: pointer;
-    list-style: none;
-    /* Hide the default marker */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.faq-question::-webkit-details-marker {
-    display: none;
-    /* Hide the marker in Chrome/Safari */
-}
-
-/* We create our own arrow marker with CSS */
-.faq-question::after {
-    content: '+';
-    font-size: 1.5rem;
-    transition: transform 0.3s ease;
-}
-
-.faq-item[open] .faq-question::after {
-    content: '−';
-    transform: rotate(180deg);
-}
-
-.faq-answer {
-    padding: 1rem 0 0 0;
-    color: var(--secondary-text-color);
-    line-height: 1.8;
-}
-
-/* Light Theme */
-body.theme-light .faq-question {
-    color: var(--primary-text-color);
-}
-
-body.theme-light .faq-answer {
-    color: var(--secondary-text-color);
-}
-
-/* --- 6. Specific Components --- */
-.header-controls {
+  }
+  .benefit-icon { background-color: var(--accent-color-green); }
+  .player-icon { background-color: var(--accent-color-blue); }
+  
+  #simulator-section {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+  }
+  
+  
+  /* --- 6. Specific Components --- */
+  .header-controls {
     display: flex;
     align-items: center;
-}
-
-.theme-switcher-btn {
+    gap: 0.5rem;
+  }
+  
+  .theme-switcher-btn {
     background: none;
     border: 1px solid var(--border-color);
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
     cursor: pointer;
     margin-left: 1rem;
     display: flex;
     align-items: center;
     justify-content: center;
-}
-
-.theme-switcher-btn svg {
+    padding: 0;
+  }
+  
+  .theme-switcher-btn svg {
     width: 18px;
     height: 18px;
     color: var(--secondary-text-color);
     transition: color 0.3s ease;
-}
-
-.theme-switcher-btn:hover svg {
+  }
+  
+  .theme-switcher-btn:hover svg {
     color: var(--accent-color-green);
-}
-
-.theme-switcher-btn .moon-icon {
+  }
+  
+  .theme-switcher-btn .moon-icon {
     display: none;
-}
-
-.theme-switcher-btn .sun-icon {
+  }
+  .theme-switcher-btn .sun-icon {
     display: block;
-}
-
-.mobile-menu-button {
+  }
+  
+  .mobile-menu-button {
     display: none;
     background: none;
     border: none;
     cursor: pointer;
     padding: 0.5rem;
     color: var(--primary-text-color);
-}
-
-.mobile-menu-button svg {
+  }
+  
+  .mobile-menu-button svg {
     width: 28px;
     height: 28px;
-}
-
-.mobile-nav-menu {
+  }
+  
+  .mobile-nav-menu {
     display: none;
     background-color: var(--card-background);
     border-top: 1px solid var(--border-color);
-}
-
-.mobile-nav-menu a {
+  }
+  
+  .mobile-nav-menu a {
     display: block;
     padding: 1rem;
     text-align: center;
@@ -411,49 +332,47 @@ body.theme-light .faq-answer {
     text-decoration: none;
     color: var(--primary-text-color);
     font-weight: 500;
-}
-
-.mobile-nav-menu a:hover {
+  }
+  
+  .mobile-nav-menu a:hover {
     background-color: var(--background-color);
     text-decoration: none;
-}
-
-#simulator-section {
-    background-color: #eef2f7;
-}
-
-.simulator-form {
+  }
+  
+  .simulator-form {
     display: flex;
+    flex-wrap: wrap;
     align-items: flex-end;
     gap: 1rem;
-}
-
-.form-group {
+  }
+  
+  .form-group {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-}
-
-.form-group label {
+  }
+  
+  .form-group label {
     font-size: 0.9rem;
     font-weight: 500;
     margin-bottom: 0.25rem;
-}
-
-.form-group input,
-.form-group textarea {
+  }
+  
+  .form-group input, .form-group textarea {
     padding: 0.75rem;
     border: 1px solid var(--border-color);
     border-radius: 6px;
     font-size: 1rem;
     font-family: var(--font-family-sans);
-}
-
-.form-group textarea {
+    background-color: var(--background-color);
+    color: var(--primary-text-color);
+  }
+  
+  .form-group textarea {
     resize: vertical;
-}
-
-.btn {
+  }
+  
+  .btn {
     padding: 0.75rem 1.5rem;
     border: none;
     border-radius: 6px;
@@ -461,199 +380,156 @@ body.theme-light .faq-answer {
     font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
-}
-
-.btn-primary {
+  }
+  
+  .btn-primary {
     background-color: var(--accent-color-green);
     color: white;
-}
-
-.btn-primary:hover {
+  }
+  
+  .btn-primary:hover {
     background-color: #589a84;
     text-decoration: none;
-}
-
-.results-table {
+  }
+  
+  .results-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 1rem;
-}
-
-.results-table th,
-.results-table td {
+    margin-top: 2rem;
+  }
+  
+  .results-table th, .results-table td {
     padding: 0.75rem;
     text-align: left;
     border-bottom: 1px solid var(--border-color);
-}
-
-.results-table thead th {
-    background-color: #f8f9fa;
+  }
+  
+  .results-table thead th {
+    background-color: var(--card-background);
     font-weight: 600;
-}
-
-.results-table tbody tr:nth-child(even) {
-    background-color: #f8f9fa;
-}
-
-.success-msg {
+  }
+  
+  .results-table tbody tr:nth-child(even) {
+    background-color: rgba(0,0,0,0.1);
+  }
+  
+  .success-msg {
     background-color: #d4edda;
     color: #155724;
     border: 1px solid #c3e6cb;
     padding: 1rem;
     border-radius: 6px;
-}
-
-
-/* public/css/style.css */
-
-/* --- 7. Alternative Theme Styles (Light Theme - Logo Palette) --- */
-body.theme-light {
-    /* Soft Palette, based on the light colors of the logo */
+  }
+  
+  .faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .faq-item {
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+  }
+  .faq-item[open] summary {
+    font-weight: bold;
+  }
+  .faq-question {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--primary-text-color);
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .faq-question::-webkit-details-marker {
+    display: none;
+  }
+  .faq-question::after {
+    content: '+';
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+  }
+  .faq-item[open] .faq-question::after {
+    content: '−';
+    transform: rotate(180deg);
+  }
+  .faq-answer {
+    padding: 1rem 0 0 0;
+    color: var(--secondary-text-color);
+    line-height: 1.8;
+  }
+  
+  
+  /* --- 7. Alternate Theme Styles (Light & Dark) --- */
+  
+  /* Dark Theme Styles (Default) */
+  html.theme-dark .main-footer a { color: var(--accent-color-green); }
+  html.theme-dark .testimonial-card { background-color: rgba(0,0,0,0.1); }
+  html.theme-dark .testimonial-card::before { color: var(--border-color); }
+  html.theme-dark #news-container::-webkit-scrollbar-track { background: #2d3748; }
+  html.theme-dark #news-container::-webkit-scrollbar-thumb { background: #555; }
+  html.theme-dark #news-container::-webkit-scrollbar-thumb:hover { background: #777; }
+  html.theme-dark #simulator-section { background-color: var(--card-background); border: 1px solid var(--border-color); }
+  html.theme-dark .results-table tbody tr:nth-child(even) { background-color: rgba(0,0,0,0.1); }
+  html.theme-dark .theme-switcher-btn .moon-icon { display: block; }
+  html.theme-dark .theme-switcher-btn .sun-icon { display: none; }
+  html.theme-dark .success-msg { background-color: #1c4a2a; color: #c3e6cb; border-color: #28a745; }
+  html.theme-dark .benefit-icon { background-color: var(--accent-color-green); }
+  html.theme-dark .player-icon { background-color: var(--accent-color-blue); }
+  
+  /* Light Theme Styles (Alternate) */
+  html.theme-light {
     --background-color: #f4f7f9;
     --card-background: #ffffff;
     --border-color: #e1e8ed;
     --primary-text-color: #2c3e50;
     --secondary-text-color: #576574;
-    /* Using the exact colors from the dark theme/logo */
     --accent-color-green: #6aaa96;
     --accent-color-blue: #7fadd1;
-}
-
-/* We override the rest of the styles for the light theme */
-body.theme-light a {
-    color: var(--accent-color-green);
-}
-
-body.theme-light .main-header .logo a {
-    color: var(--accent-color-green);
-}
-
-body.theme-light .main-header .desktop-nav a {
-    color: var(--primary-text-color);
-}
-
-body.theme-light .main-header .desktop-nav a:hover {
-    color: var(--accent-color-green);
-}
-
-body.theme-light .mobile-menu-button {
-    color: var(--primary-text-color);
-}
-
-body.theme-light .mobile-nav-menu a {
-    color: var(--primary-text-color);
-}
-
-body.theme-light .main-footer {
-    background-color: #e9ecef;
-    color: var(--secondary-text-color);
-}
-
-body.theme-light .main-footer a {
-    color: var(--accent-color-green);
-}
-
-/* We use green for consistency */
-
-body.theme-light .testimonial-card {
-    background-color: #eef2f7;
-}
-
-body.theme-light #simulator-section {
-    background-color: #eef2f7;
-}
-
-body.theme-light #news-container::-webkit-scrollbar-track {
-    background: #f1f1f1;
-}
-
-body.theme-light #news-container::-webkit-scrollbar-thumb {
-    background: #ccc;
-}
-
-body.theme-light #news-container::-webkit-scrollbar-thumb:hover {
-    background: #aaa;
-}
-
-body.theme-e-light .results-table thead th {
-    background-color: var(--background-color);
-}
-
-body.theme-light .results-table tbody tr:nth-child(even) {
-    background-color: var(--background-color);
-}
-
-body.theme-light .form-group input,
-body.theme-light .form-group textarea {
-    background-color: #fff;
-    color: var(--primary-text-color);
-    border-color: #ced4da;
-}
-
-body.theme-light .theme-switcher-btn svg {
-    color: var(--secondary-text-color);
-}
-
-body.theme-light .theme-switcher-btn:hover svg {
-    color: var(--accent-color-green);
-}
-
-body.theme-light .theme-switcher-btn .moon-icon {
-    display: none;
-}
-
-body.theme-light .theme-switcher-btn .sun-icon {
-    display: block;
-}
-
-body.theme-light .success-msg {
-    background-color: #d4edda;
-    color: #155724;
-    border-color: #c3e6cb;
-}
-
-body.theme-light .benefit-icon {
-    background-color: var(--accent-color-green);
-}
-
-body.theme-light .player-icon {
-    background-color: var(--accent-color-blue);
-}
-
-/* --- 8. Animations --- */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(15px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.fade-in-section {
+  }
+  html.theme-light a { color: var(--accent-color-green); }
+  html.theme-light .main-header .logo a { color: var(--accent-color-green); }
+  html.theme-light .main-header .desktop-nav a { color: var(--primary-text-color); }
+  html.theme-light .main-header .desktop-nav a:hover { color: var(--accent-color-green); }
+  html.theme-light .mobile-menu-button { color: var(--primary-text-color); }
+  html.theme-light .mobile-nav-menu a { color: var(--primary-text-color); }
+  html.theme-light .main-footer { background-color: #e9ecef; color: var(--secondary-text-color); }
+  html.theme-light .main-footer a { color: var(--accent-color-green); }
+  html.theme-light .testimonial-card { background-color: #eef2f7; }
+  html.theme-light #simulator-section { background-color: #eef2f7; }
+  html.theme-light #news-container::-webkit-scrollbar-track { background: #f1f1f1; }
+  html.theme-light #news-container::-webkit-scrollbar-thumb { background: #ccc; }
+  html.theme-light #news-container::-webkit-scrollbar-thumb:hover { background: #aaa; }
+  html.theme-light .results-table thead th { background-color: var(--background-color); }
+  html.theme-light .results-table tbody tr:nth-child(even) { background-color: var(--background-color); }
+  html.theme-light .form-group input, 
+  html.theme-light .form-group textarea { background-color: #fff; color: var(--primary-text-color); border-color: #ced4da; }
+  html.theme-light .theme-switcher-btn svg { color: var(--secondary-text-color); }
+  html.theme-light .theme-switcher-btn:hover svg { color: var(--accent-color-green); }
+  html.theme-light .theme-switcher-btn .moon-icon { display: none; }
+  html.theme-light .theme-switcher-btn .sun-icon { display: block; }
+  html.theme-light .success-msg { background-color: #d4edda; color: #155724; border-color: #c3e6cb; }
+  html.theme-light .benefit-icon { background-color: var(--accent-color-green); }
+  html.theme-light .player-icon { background-color: var(--accent-color-blue); }
+  html.theme-light .faq-question { color: var(--primary-text-color); }
+  html.theme-light .faq-answer { color: var(--secondary-text-color); }
+  
+  
+  /* --- 8. Animations --- */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .fade-in-section {
     animation: fadeIn 0.8s ease-out forwards;
-}
-
-
-/* --- 9. Media Queries (Responsive Design) --- */
-@media (max-width: 768px) {
-    .desktop-nav {
-        display: none;
-    }
-
-    .mobile-menu-button {
-        display: block;
-    }
-
-    .mobile-nav-menu.is-active {
-        display: block;
-    }
-
-    .simulator-form {
-        flex-direction: column;
-        align-items: stretch;
-    }
-}
+  }
+  
+  
+  /* --- 9. Media Queries (Responsive Design) --- */
+  @media (max-width: 768px) {
+    .desktop-nav { display: none; }
+    .mobile-menu-button { display: block; }
+    .mobile-nav-menu.is-active { display: block; }
+    .simulator-form { flex-direction: column; align-items: stretch; }
+  }
