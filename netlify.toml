@@ -1,13 +1,22 @@
+# Archivo netlify.toml corregido y definitivo
+
 [build]
-  command = "npm install"
+  # Directorio donde se encuentra el contenido estático (CSS, JS del cliente, imágenes)
   publish = "public"
-  functions = ".netlify/functions"
-  environment = { NODE_VERSION = "18" }
+  # Directorio donde Netlify buscará el código fuente de las funciones
+  functions = "netlify/functions"
+
+[build.environment]
+  # Aseguramos que se use Node.js v18 o superior
+  NODE_VERSION = "18"
 
 [functions]
+  # Usamos el empaquetador moderno
   node_bundler = "esbuild"
+  # Le indicamos que no empaquete estos módulos, sino que los instale en el entorno
   external_node_modules = ["express", "ejs"]
 
+# Redirección global para que todas las peticiones vayan a nuestra función de Express
 [[redirects]]
   from = "/*"
   to = "/.netlify/functions/server"
