@@ -1,22 +1,19 @@
-# Archivo netlify.toml corregido y definitivo
+# netlify.toml (Versión Final Definitiva)
 
 [build]
-  # Directorio donde se encuentra el contenido estático (CSS, JS del cliente, imágenes)
   publish = "public"
-  # Directorio donde Netlify buscará el código fuente de las funciones
   functions = "netlify/functions"
 
 [build.environment]
-  # Aseguramos que se use Node.js v18 o superior
   NODE_VERSION = "18"
 
 [functions]
-  # Usamos el empaquetador moderno
   node_bundler = "esbuild"
-  # Le indicamos que no empaquete estos módulos, sino que los instale en el entorno
   external_node_modules = ["express", "ejs"]
+  # --- LÍNEA CLAVE DE LA SOLUCIÓN ---
+  # Incluimos las carpetas 'views' y 'data' en el paquete de la función.
+  included_files = ["../../views/**", "../../data/**"]
 
-# Redirección global para que todas las peticiones vayan a nuestra función de Express
 [[redirects]]
   from = "/*"
   to = "/.netlify/functions/server"
