@@ -1,4 +1,4 @@
-# netlify.toml (Versión Final Definitiva)
+# netlify.toml (Versión Final Corregida)
 
 [build]
   publish = "public"
@@ -10,9 +10,9 @@
 [functions]
   node_bundler = "esbuild"
   external_node_modules = ["express", "ejs"]
-  # --- LÍNEA CLAVE DE LA SOLUCIÓN ---
-  # Incluimos las carpetas 'views' y 'data' en el paquete de la función.
-  included_files = ["../../views/**", "../../data/**"]
+  # --- RUTA CORREGIDA ---
+  # Las rutas son relativas a la raíz del proyecto.
+  included_files = ["views/**", "data/**"]
 
 [[redirects]]
   from = "/*"
