@@ -1,0 +1,27 @@
+<%- include('partials/header') %>
+
+    <section class="content-section">
+        <h1 class="text-3xl font-bold mb-6 text-center">Frequently Asked Questions</h1>
+
+        <div class="faq-container">
+            <% if (faqs && faqs.length> 0) { %>
+                <% faqs.forEach(faq=> { %>
+                    <details class="faq-item">
+                        <summary class="faq-question">
+                            <%= faq.question %>
+                        </summary>
+                        <div class="faq-answer">
+                            <p>
+                                <%= faq.answer %>
+                            </p>
+                        </div>
+                    </details>
+                    <% }) %>
+                        <% } else { %>
+                            <p>Could not load FAQ at this moment. Please try again later.</p>
+                            <% } %>
+        </div>
+
+    </section>
+
+    <%- include('partials/footer') %>

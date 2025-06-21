@@ -1,0 +1,659 @@
+/* ===================================================================
+   ZenPips - Main Stylesheet
+   ===================================================================
+
+   Table of Contents:
+   1. Global Variables and Base Styles
+   2. Typography and General Styles
+   3. Utility Classes and Containers
+   4. Main Structure (Header, Footer)
+   5. Specific Content Sections
+   6. Specific Components
+   7. Alternative Theme Styles (Light Theme)
+   8. Animations
+   9. Media Queries (Responsive Design)
+
+=================================================================== */
+
+
+/* --- 1. Global Variables and Base Styles --- */
+:root {
+    /* Dark Palette (Default) - Based on the Logo */
+    --background-color: #121a23;
+    --card-background: #1a242f;
+    --border-color: #2c3e50;
+    --primary-text-color: #ecf0f1;
+    --secondary-text-color: #bdc3c7;
+    --accent-color-green: #6aaa96;
+    --accent-color-blue: #7fadd1;
+    --success-color: #28a745;
+    --danger-color: #e74c3c;
+    --font-family-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+html {
+    font-size: 17px;
+}
+
+body {
+    font-family: var(--font-family-sans);
+    background-color: var(--background-color);
+    color: var(--secondary-text-color);
+    margin: 0;
+    padding: 0;
+    line-height: 1.7;
+}
+
+
+/* --- 2. Typography and General Styles --- */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--primary-text-color);
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+h1 {
+    font-size: 2.25rem;
+}
+
+h2 {
+    font-size: 1.75rem;
+}
+
+h3 {
+    font-size: 1.25rem;
+}
+
+a {
+    color: var(--accent-color-green);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+
+/* --- 3. Utility Classes and Containers --- */
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.text-gain {
+    color: var(--success-color);
+    font-weight: 500;
+}
+
+.text-loss {
+    color: var(--danger-color);
+    font-weight: 500;
+}
+
+
+/* --- 4. Main Structure (Header, Footer) --- */
+.main-header {
+    background-color: var(--card-background);
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.main-header .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo-image {
+    max-height: 100px;
+    /* Adjust the size of your logo */
+}
+
+.main-header .desktop-nav a {
+    text-decoration: none;
+    color: var(--primary-text-color);
+    padding: 0.5rem 1rem;
+    transition: color 0.3s ease;
+    font-weight: 500;
+}
+
+.main-header .desktop-nav a:hover {
+    color: var(--accent-color-green);
+    text-decoration: none;
+}
+
+.main-footer {
+    background-color: var(--card-background);
+    color: var(--secondary-text-color);
+    padding: 2rem 0;
+    margin-top: 3rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.main-footer a {
+    color: var(--accent-color-green);
+}
+
+
+/* --- 5. Specific Content Sections --- */
+.hero-section {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('/images/hero-background.jpg');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    padding: 4rem 2rem;
+}
+
+.hero-section h1,
+.hero-section p {
+    color: white;
+}
+
+.content-section {
+    background-color: var(--card-background);
+    padding: 2rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.card {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-content h3 {
+    margin-top: 0;
+}
+
+.card-content .read-more-link {
+    margin-top: auto;
+    font-weight: bold;
+}
+
+#news-container {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 1.5rem;
+    gap: 1.5rem;
+}
+
+#news-container .news-card {
+    flex: 0 0 320px;
+}
+
+#news-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+#news-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+#news-container::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 10px;
+}
+
+#news-container::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+}
+
+.testimonial-card {
+    position: relative;
+    padding-top: 2.5rem;
+}
+
+.testimonial-card::before {
+    content: '“';
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    font-size: 5rem;
+    line-height: 1;
+    color: var(--border-color);
+    font-family: Georgia, serif;
+}
+
+.benefits-grid,
+.key-players-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.benefit-item,
+.player-item {
+    text-align: center;
+}
+
+.benefit-icon,
+.player-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    color: white;
+    margin-bottom: 1rem;
+}
+
+.benefit-icon {
+    background-color: var(--accent-color-green);
+}
+
+.player-icon {
+    background-color: var(--accent-color-blue);
+}
+
+.benefit-icon svg,
+.player-icon svg {
+    width: 32px;
+    height: 32px;
+}
+
+/* Styles for the FAQ Accordion */
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border-bottom: 1px solid var(--border-color);
+    padding: 1rem 0;
+}
+
+.faq-item[open] summary {
+    font-weight: bold;
+}
+
+.faq-question {
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: var(--primary-text-color);
+    cursor: pointer;
+    list-style: none;
+    /* Hide the default marker */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-question::-webkit-details-marker {
+    display: none;
+    /* Hide the marker in Chrome/Safari */
+}
+
+/* We create our own arrow marker with CSS */
+.faq-question::after {
+    content: '+';
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.faq-item[open] .faq-question::after {
+    content: '−';
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding: 1rem 0 0 0;
+    color: var(--secondary-text-color);
+    line-height: 1.8;
+}
+
+/* Light Theme */
+body.theme-light .faq-question {
+    color: var(--primary-text-color);
+}
+
+body.theme-light .faq-answer {
+    color: var(--secondary-text-color);
+}
+
+/* --- 6. Specific Components --- */
+.header-controls {
+    display: flex;
+    align-items: center;
+}
+
+.theme-switcher-btn {
+    background: none;
+    border: 1px solid var(--border-color);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-switcher-btn svg {
+    width: 18px;
+    height: 18px;
+    color: var(--secondary-text-color);
+    transition: color 0.3s ease;
+}
+
+.theme-switcher-btn:hover svg {
+    color: var(--accent-color-green);
+}
+
+.theme-switcher-btn .moon-icon {
+    display: none;
+}
+
+.theme-switcher-btn .sun-icon {
+    display: block;
+}
+
+.mobile-menu-button {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: var(--primary-text-color);
+}
+
+.mobile-menu-button svg {
+    width: 28px;
+    height: 28px;
+}
+
+.mobile-nav-menu {
+    display: none;
+    background-color: var(--card-background);
+    border-top: 1px solid var(--border-color);
+}
+
+.mobile-nav-menu a {
+    display: block;
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+    text-decoration: none;
+    color: var(--primary-text-color);
+    font-weight: 500;
+}
+
+.mobile-nav-menu a:hover {
+    background-color: var(--background-color);
+    text-decoration: none;
+}
+
+#simulator-section {
+    background-color: #eef2f7;
+}
+
+.simulator-form {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.form-group label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.form-group input,
+.form-group textarea {
+    padding: 0.75rem;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    font-size: 1rem;
+    font-family: var(--font-family-sans);
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-primary {
+    background-color: var(--accent-color-green);
+    color: white;
+}
+
+.btn-primary:hover {
+    background-color: #589a84;
+    text-decoration: none;
+}
+
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+}
+
+.results-table th,
+.results-table td {
+    padding: 0.75rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.results-table thead th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+}
+
+.results-table tbody tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.success-msg {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+
+/* public/css/style.css */
+
+/* --- 7. Alternative Theme Styles (Light Theme - Logo Palette) --- */
+body.theme-light {
+    /* Soft Palette, based on the light colors of the logo */
+    --background-color: #f4f7f9;
+    --card-background: #ffffff;
+    --border-color: #e1e8ed;
+    --primary-text-color: #2c3e50;
+    --secondary-text-color: #576574;
+    /* Using the exact colors from the dark theme/logo */
+    --accent-color-green: #6aaa96;
+    --accent-color-blue: #7fadd1;
+}
+
+/* We override the rest of the styles for the light theme */
+body.theme-light a {
+    color: var(--accent-color-green);
+}
+
+body.theme-light .main-header .logo a {
+    color: var(--accent-color-green);
+}
+
+body.theme-light .main-header .desktop-nav a {
+    color: var(--primary-text-color);
+}
+
+body.theme-light .main-header .desktop-nav a:hover {
+    color: var(--accent-color-green);
+}
+
+body.theme-light .mobile-menu-button {
+    color: var(--primary-text-color);
+}
+
+body.theme-light .mobile-nav-menu a {
+    color: var(--primary-text-color);
+}
+
+body.theme-light .main-footer {
+    background-color: #e9ecef;
+    color: var(--secondary-text-color);
+}
+
+body.theme-light .main-footer a {
+    color: var(--accent-color-green);
+}
+
+/* We use green for consistency */
+
+body.theme-light .testimonial-card {
+    background-color: #eef2f7;
+}
+
+body.theme-light #simulator-section {
+    background-color: #eef2f7;
+}
+
+body.theme-light #news-container::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+body.theme-light #news-container::-webkit-scrollbar-thumb {
+    background: #ccc;
+}
+
+body.theme-light #news-container::-webkit-scrollbar-thumb:hover {
+    background: #aaa;
+}
+
+body.theme-e-light .results-table thead th {
+    background-color: var(--background-color);
+}
+
+body.theme-light .results-table tbody tr:nth-child(even) {
+    background-color: var(--background-color);
+}
+
+body.theme-light .form-group input,
+body.theme-light .form-group textarea {
+    background-color: #fff;
+    color: var(--primary-text-color);
+    border-color: #ced4da;
+}
+
+body.theme-light .theme-switcher-btn svg {
+    color: var(--secondary-text-color);
+}
+
+body.theme-light .theme-switcher-btn:hover svg {
+    color: var(--accent-color-green);
+}
+
+body.theme-light .theme-switcher-btn .moon-icon {
+    display: none;
+}
+
+body.theme-light .theme-switcher-btn .sun-icon {
+    display: block;
+}
+
+body.theme-light .success-msg {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+}
+
+body.theme-light .benefit-icon {
+    background-color: var(--accent-color-green);
+}
+
+body.theme-light .player-icon {
+    background-color: var(--accent-color-blue);
+}
+
+/* --- 8. Animations --- */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-section {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+
+/* --- 9. Media Queries (Responsive Design) --- */
+@media (max-width: 768px) {
+    .desktop-nav {
+        display: none;
+    }
+
+    .mobile-menu-button {
+        display: block;
+    }
+
+    .mobile-nav-menu.is-active {
+        display: block;
+    }
+
+    .simulator-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}
