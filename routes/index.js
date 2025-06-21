@@ -1,8 +1,7 @@
 const express = require('express');
-const ejs = require('ejs');
 const path = require('path');
-const fs = require('fs');
 const router = express.Router();
+const faqsData = require('../data/faq.json');
 
 // --- PAGE ROUTES ---
 
@@ -22,21 +21,13 @@ router.get('/how-it-works', (req, res) => {
   res.render('how-it-works', { title: 'How It Works' });
 });
 
+// --- RUTA DE FAQ---
 router.get('/faq', (req, res) => {
-  const faqPath = path.join(__dirname, '..', 'data', 'faq.json');
-  fs.readFile(faqPath, 'utf8', (err, data) => {
-    if (err) {
-      console.error("Could not read FAQ file:", err);
-      return res.render('faq', { title: 'FAQ', faqs: [] });
-    }
-    try {
-      const faqs = JSON.parse(data);
-      res.render('faq', { title: 'FAQ', faqs: faqs });
-    } catch (parseErr) {
-      console.error("Could not parse FAQ JSON:", parseErr);
-      res.render('faq', { title: 'FAQ', faqs: [] });
-    }
-  });
+  res.render('faq', { title: 'FAQ', faqs: faqsData });
+});
+
+router.get('/contact', (req, res) => {
+  res.render('contact', { title: 'Contact Us' });
 });
 
 router.get('/contact', (req, res) => {
